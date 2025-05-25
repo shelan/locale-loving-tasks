@@ -1,0 +1,12 @@
+
+{
+  "appTitle": "Min flerspråkiga att göra-lista",
+  "addTask": "Lägg till uppgift",
+  "inputPlaceholder": "Ange ny uppgift...",
+  "delete": "Ta bort",
+  "completed": "Slutförd",
+  "noTasks": "Inga uppgifter ännu. Lägg till en ny!",
+  "tasks": "Uppgifter",
+  "clear": "Rensa alla",
+  "clearCompleted": "Rensa slutförda"
+}

@@ -1,30 +1,24 @@
 
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import { LanguageCode, TranslationKeys, translations } from '@/utils/translations';
+import React, { createContext, useContext } from 'react';
+import { useTranslation } from 'react-i18next';
+import { LanguageCode } from '@/utils/translations';
 
 interface LanguageContextType {
   language: LanguageCode;
   setLanguage: (language: LanguageCode) => void;
-  t: (key: TranslationKeys) => string;
+  t: (key: string) => string;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{children: React.ReactNode}> = ({ children }) => {
-  // Get language from localStorage or default to English
-  const [language, setLanguage] = useState<LanguageCode>(() => {
-    const savedLanguage = localStorage.getItem('todoLanguage');
-    return (savedLanguage as LanguageCode) || 'en';
-  });
-
-  // Save language to localStorage when it changes
-  useEffect(() => {
-    localStorage.setItem('todoLanguage', language);
-  }, [language]);
-
-  // Translation function
-  const t = (key: TranslationKeys): string => {
-    return translations[language][key];
+  const { i18n, t } = useTranslation();
+  
+  const language = i18n.language as LanguageCode;
+  
+  const setLanguage = (newLanguage: LanguageCode) => {
+    i18n.changeLanguage(newLanguage);
+    localStorage.setItem('todoLanguage', newLanguage);
   };
 
   return (

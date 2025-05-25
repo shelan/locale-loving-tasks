@@ -1,0 +1,12 @@
+
+{
+  "appTitle": "My Multilingual Todo List",
+  "addTask": "Add Task",
+  "inputPlaceholder": "Enter new task...",
+  "delete": "Delete",
+  "completed": "Completed",
+  "noTasks": "No tasks yet. Add a new one!",
+  "tasks": "Tasks",
+  "clear": "Clear All",
+  "clearCompleted": "Clear Completed"
+}
